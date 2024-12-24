@@ -7,13 +7,13 @@ class DioHelper {
     dio = Dio(BaseOptions(baseUrl: baseUrl, receiveDataWhenStatusError: true));
   }
 
-  Future<Response> getData(
+ static Future<Response> getData(
       {required String url,
        Map<String, dynamic>? query,
        }) async {
     return await dio.get(url, queryParameters: query);
   }
-   Future<Response> postData(
+  static Future<Response> postData(
       {required String url, 
       Map<String, dynamic>? query,
         Map<String, dynamic>? data,
