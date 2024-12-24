@@ -1,4 +1,4 @@
-import 'package:clean_arch_bookly_pp/core/utils/end_point.dart';
+import 'package:clean_arch_bookly_pp/core/utils/end_points.dart';
 import 'package:dio/dio.dart';
 
 class DioHelper {

@@ -16,7 +16,15 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource{
     return books;
   }
 
-  List<BookEntity> gitBooksList(Response<dynamic> data) {
+  
+
+  @override
+  Future<List<BookEntity>> fetchNewestBooks()async {
+    var data=  await DioHelper.getData(url: NewestBooks);
+    List<BookEntity> books = gitBooksList(data);
+    return books;
+  }
+List<BookEntity> gitBooksList(Response<dynamic> data) {
     List<BookEntity>books=[];
     for (var bookMap in data.data['items']) {
       books.add(BooKModel.fromJson(bookMap));
@@ -24,11 +32,4 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource{
     }
     return books;
   }
-
-  @override
-  Future<List<BookEntity>> fetchNewestBooks() {
-    // TODO: implement fetchNewestBooks
-    throw UnimplementedError();
-  }
-
 }
