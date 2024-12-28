@@ -63,15 +63,19 @@
 //   }
 // }
 
+import 'package:clean_arch_bookly_pp/Features/home/domain/entities/book_entity.dart';
 import 'package:clean_arch_bookly_pp/constants.dart';
 import 'package:clean_arch_bookly_pp/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive/hive.dart';
 
 
 
 void main() {
   runApp(const Bookly());
+  Hive.registerAdapter(BookEntityAdapter());
+  Hive.openBox(kFeaturedBox);
 }
 
 class Bookly extends StatelessWidget {
