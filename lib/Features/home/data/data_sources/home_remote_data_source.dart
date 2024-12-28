@@ -28,7 +28,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource{
   Future<List<BookEntity>> fetchNewestBooks()async {
     var data=  await DioHelper.getData(url: NewestBooks);
     List<BookEntity> books = gitBooksList(data);
-    //saveBooksData(books, kNewestBox);
+    saveBooksData(books, kNewestBox);
     return books;
   }
 List<BookEntity> gitBooksList(Response<dynamic> data) {
